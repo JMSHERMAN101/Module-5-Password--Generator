@@ -106,23 +106,17 @@ pLength = parseInt(passwordCharacterChoice, 0);
   
   if (pLength >= 10 && pLength <= 64) {
     let lowerCharacter = confirm("Password to contain lowercase characters? Ok for yes and Cancel for no");
-
+        if (lowerCharacter) {userOptions.push(lowerCasedCharacters);}
     let upperCharacter = confirm("Password to contain uppercase characters? Ok for yes and Cancel for no");
-
+        if (upperCharacter) {userOptions.push(upperCasedCharacters);}
     let specialCharacter = confirm("Password to contain special characters? Ok for yes and Cancel for no");
-    
+        if (specialCharacter) {userOptions.push(specialCharacters);}
     let numericCharacter = confirm("Password to contain numeric characters? Ok for yes and Cancel for no");
-
-    if (lowerCharacter) {userOptions.push(lowerCasedCharacters);}
+        if (numericCharacter) {userOptions.push(numericCharacters);}
     
-    if (upperCharacter) {userOptions.push(upperCasedCharacters);}
-
-    if (specialCharacter) {userOptions.push(specialCharacters);}
-    
-    if (numericCharacter) {userOptions.push(numericCharacters);}
 
     if (userOptions.length === 0) {
-        alert ("you must select at least one range of characters to generate a password");
+        alert ("Select at least one option to generate a password");
         getPasswordOptions();
       } else {
         generatePassword();
@@ -141,5 +135,12 @@ function generatePassword() {
       password += getRandom(userOptions);
     }
   }
+// Get references to the #generate element
+  const generateBtn = document.querySelector("#generate");
 
+// Write password to the #password input
+function writePassword() { getPasswordOptions();
+    pText.textContent = password; }
 
+// Add event listener to generate button
+generateBtn.addEventListener('click', writePassword);
