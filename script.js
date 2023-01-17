@@ -114,19 +114,17 @@ pLength = parseInt(passwordCharacterChoice, 0);
     let numericCharacter = confirm("Password to contain numeric characters? Ok for yes and Cancel for no");
         if (numericCharacter) {userOptions.push(numericCharacters);}
     
-
     if (userOptions.length === 0) {
         alert ("Select at least one option to generate a password");
         getPasswordOptions();
-      } else {
-        generatePassword();
+      } else { generatePassword();
         userOptions = [];
       }
     }
   }
 
 // Function for getting a random element from an array
-function getRandom(ar) { return ar[Math.floor(Math.random() * ar.length)];
+function getRandom(a) { return a[Math.floor(Math.random() * a.length)];
 }
 
 // Function to generate password with user input
