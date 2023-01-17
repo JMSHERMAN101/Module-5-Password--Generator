@@ -132,10 +132,14 @@ pLength = parseInt(passwordCharacterChoice, 0);
   }
 
 // Function for getting a random element from an array
-function getRandom(arr) { return ar[Math.floor(Math.random() * ar.length)];
+function getRandom(ar) { return ar[Math.floor(Math.random() * ar.length)];
 }
 
-
-
+// Function to generate password with user input
+function generatePassword() {
+    for (let i = 0; i < this.pLength; i++) {userOptions = userOptions.flat();
+      password += getRandom(userOptions);
+    }
+  }
 
 
